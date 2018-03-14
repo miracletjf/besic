@@ -1,0 +1,195 @@
+@charset "utf-8";
+/*region 常用变量配置*/
+/*endregion*/
+/*region 模块配置*/
+/*endregion*/
+/*region 常用函数*/
+/*endregion*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 16px;
+}
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+time,
+mark,
+audio,
+video,
+input,
+textarea,
+tr,
+th,
+td,
+:before,
+:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-family: "Lucida Grande", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
+  color: #333;
+  vertical-align: baseline;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+i,
+em {
+  font-style: normal;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b {
+  font-weight: normal;
+}
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+input {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+input,
+textarea {
+  line-height: 1.2em;
+  outline: none;
+  -webkit-appearance: none;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+p {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  text-align: justify;
+}
+input::-webkit-input-placeholder {
+  line-height: 1.2em;
+}
+.wrap {
+  width: 100%;
+  min-width: 1200px;
+}
+/*region 常用布局*/
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.float-l {
+  float: left;
+}
+.float-r {
+  float: right;
+}
+.flex-box {
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: box!important;
+}
+.box-flex1 {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+}
+.center-container {
+  display: block;
+  margin: 0 auto;
+  width: 1200px;
+}
+.transition-def {
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+/*endregion*/
+/*region 首页*/
+.index {
+  display: block;
+}
+/*endregion*/

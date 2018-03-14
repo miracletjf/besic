@@ -1,0 +1,157 @@
+/*region 常用变量配置*/
+//初始化配置
+@minWidth: 1200px; //页面最小宽度
+@defaultBg: #ffffff;//设置默认背景
+@fontSize: 16px;//页面默认字体大小
+@fontColor: #333;//页面默认字颜色
+@subFontColor: #999;
+//图片路径
+@imgUrl: 'icon/';
+//颜色配置
+@mainColor: #019d3c;
+@subColor: #d78700;
+
+/*endregion*/
+
+/*region 模块配置*/
+//初始化模块
+#Mt_initialize {
+  .initialize(@pageWidth:1200px,@bodyBackground:#fff) {
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-size: @fontSize;
+    }
+    div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,
+    p, blockquote, pre, a, abbr, acronym, address, big, cite, del, dfn, em,
+    img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
+    i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, time, mark,
+    audio, video, input, textarea, tr, th, td, :before, :after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      font-family: "Lucida Grande",Helvetica,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",Roboto,Arial,sans-serif;
+      color: @fontColor;
+      vertical-align: baseline;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background: @bodyBackground;
+      overflow-x: hidden
+    }
+    //body 背景色
+    i, em {
+      font-style: normal
+    }
+    ol, ul, li {
+      list-style: none
+    }
+    h1, h2, h3, h4, h5, h6, b {
+      font-weight: normal
+    }
+    a, a:hover, a:active, a:focus {
+      text-decoration: none;
+      outline: none;
+      cursor: pointer
+    }
+    input {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      border: none
+    }
+    input, textarea {
+      line-height: 1.2em;
+      outline: none;
+      -webkit-appearance: none
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      border: 0;
+      vertical-align: middle
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0
+    }
+    p {
+      -ms-word-break: break-all;
+      word-break: break-all;
+      text-align: justify
+    }
+    input::-webkit-input-placeholder {
+      line-height: 1.2em
+    }
+    .wrap {
+      width: 100%;
+      min-width: @pageWidth;
+    }
+  }
+}
+
+/*endregion*/
+
+/*region 常用函数*/
+
+//兼容性代码
+.compatible(@name: t  ransform,@value: rotateZ(45deg)) {
+  -webkit-@{name}: @value;
+  -moz-@{name}: @value;
+  -o-@{name}: @value;
+    @{name}: @value;
+}
+//过渡
+.transition(@property: all,@duration: 0.3s,@type: ease-in-out,@delay: 0s) {
+  //css3过度
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+//变形
+.transform(@name,@argu) {
+  //css3变换
+  -webkit-transform: e(%('%s(%s)',@name,@argu));
+  -moz-transform: e(%('%s(%s)',@name,@argu));
+  -ms-transform: e(%('%s(%s)',@name,@argu));
+  -o-transform: e(%('%s(%s)',@name,@argu));
+  transform: e(%('%s(%s)',@name,@argu));
+}
+//弹性盒子 比例
+.box-flex(@n: 1) {
+  -webkit-box-flex: @n;
+  -moz-box-flex: @n;
+  -ms-box-flex: @n;
+  -o-box-flex:@n;
+  box-flex: @n;
+}
+//阴影
+.box-shadow(@XShadow: 2px,@YShadow: 2px,@blur: 5px,@color: #aaa) {
+  //css3过度
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -o-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+//背景渐变
+.background-liner(@color1,@color2){
+  background-color: @color2;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color1), to(@color2));
+  background-image: -moz-linear-gradient(@color1, @color2);
+  background-image: -ms-linear-gradient(@color1, @color2);
+  background-image: -o-linear-gradient(@color1, @color2);
+  background-image: linear-gradient(@color1, @color2);
+}
+/*endregion*/
+
+

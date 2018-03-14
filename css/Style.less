@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+@import "MtConfig.less";
+
+//初始化页面
+#Mt_initialize > .initialize(@minWidth,@defaultBg);
+
+/*region 常用布局*/
+//清除浮动
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+//左浮动
+.float-l {
+  float: left;
+}
+//右浮动
+.float-r {
+  float: right;
+}
+//弹性盒子
+.flex-box {
+  display: -moz-box!important;
+  display: -webkit-box!important;
+  display: box!important;
+}
+.box-flex1 {
+  .box-flex();
+}
+//居中盒子
+.center-container {
+  display: block;
+  margin: 0 auto;
+  width: @minWidth;
+}
+//文字超出部分隐藏
+.overflow-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//过渡效果
+.transition-def {
+  .transition();
+}
+//放大效果
+.scale(@n) {
+  .transform(scale,@n);
+}
+/*endregion*/
+
+/*region 首页*/
+.index {
+  display: block;
+}
+/*endregion*/

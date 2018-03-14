@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../plugInUnit/bootstrap/3/css/bootstrap.min.css">
+    <title>出入库流程指示</title>
+</head>
+<body>
+<div class="bg-wrap"></div>
+<div class="wrap crk-process-wrap">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 ">
+                <span class="title">出入库流程指示</span>
+            </div>
+        </div>
+        <div class="content-wrap">
+            <div class="row pad-beside">
+                <div class="col-md-12 top-box">
+                    <div class="time-show">
+                        <span class="text">时间：</span>
+                        <span class="time" id="time"></span>
+                    </div>
+                    <table class="table table-top-list">
+                        <thead>
+                            <tr>
+                                <th>登记</th>
+                                <th>扦样</th>
+                                <th>检验</th>
+                                <th>称重(毛)</th>
+                                <th>值仓</th>
+                                <th>称重(皮)</th>
+                                <th>结算</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>24</td>
+                                <td>24</td>
+                                <td>23</td>
+                                <td>22</td>
+                                <td>21</td>
+                                <td>21</td>
+                                <td>20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-process-list">
+                        <thead>
+                            <tr>
+                                <th width="75">序号</th>
+                                <th width="180">车牌号</th>
+                                <th width="120">联系人</th>
+                                <th><span class="pro-th">车辆状态</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="scroll_box">
+                            <tr>
+                                <td width="75">1</td>
+                                <td width="180">浙A5TY98</td>
+                                <td width="120">张大山</td>
+                                <td>
+                                    <div class="process-box" process="sign"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="75">2</td>
+                                <td width="180">浙A4098E</td>
+                                <td width="120">周杰</td>
+                                <td>
+                                    <div class="process-box" process="check"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="75">3</td>
+                                <td width="180">浙APO865</td>
+                                <td width="120">李建</td>
+                                <td>
+                                    <div class="process-box" process="weight1"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="75">4</td>
+                                <td width="180">浙A4355Y</td>
+                                <td width="120">张军明</td>
+                                <td>
+                                    <div class="process-box" process="unload"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="75">5</td>
+                                <td width="180">浙A6764Q</td>
+                                <td width="120">王伟杰</td>
+                                <td>
+                                    <div class="process-box" process="count"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/mr_util.js"></script>
+<script type="text/javascript">
+
+    function getTimeNow() {
+        var date = new Date();
+
+        var year = date.getFullYear();
+        var month = (date.getMonth()+1) >9 ? (date.getMonth()+1) : '0'+ (date.getMonth()+1);
+        var day = date.getDate() >9 ? date.getDate() : '0'+date.getDate();
+
+        var hour = date.getHours() >9 ? date.getHours() : '0'+date.getHours();
+        var minute = date.getMinutes() >9 ? date.getMinutes() : '0'+date.getMinutes();
+        var second = date.getSeconds() >9 ? date.getSeconds() : '0'+date.getSeconds();
+
+        var nowTime = year+'年'+month+'月'+day+'日'+' '+hour+':'+minute+':'+second;
+        return nowTime;
+    }
+
+    window.onload = function () {
+        //添加过程
+        var proBoxs = document.getElementsByClassName('process-box');
+        for(var i = 0; i<proBoxs.length ;i++){
+            var proSelector = proBoxs[i];
+            var proName = proSelector.getAttribute('process');
+            var proItem = new Process(proSelector,proName);
+            proItem.getNowStatue();
+        }
+        //平滑动画
+        defineAnimationFrame();
+        //滚动效果
+        var slider = new Slider('scroll_box',3,5000);
+        slider.init();
+
+        var date = setInterval(function () {
+            document.getElementById('time').innerHTML = getTimeNow();
+        },1000);
+    };
+
+</script>
+</body>
+</html>
